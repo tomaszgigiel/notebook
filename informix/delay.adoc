@@ -1,0 +1,22 @@
+[source,sql]
+----
+-- https://www-01.ibm.com/support/docview.wss?uid=swg21252128
+drop procedure if exists delay_sec;
+/
+create procedure delay_sec (secs int);
+  define v_end, v_current datetime year to second;
+  define ok boolean;
+  let ok = 'f';
+  select dbinfo('utc_to_datetime', sh_curtime) + secs units second into v_end from sysmaster:sysshmvals;
+  while not ok
+    select dbinfo('utc_to_datetime', sh_curtime) into v_current from sysmaster:sysshmvals;
+    if (v_current >= v_end) then
+      let ok = 't';
+    end if;
+  end while;
+end procedure;
+/
+
+execute procedure delay_sec (10);
+/
+----
