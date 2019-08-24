@@ -1,0 +1,16 @@
+[source,bat]
+----
+cd %~dp0
+
+set script_prod=foo-prod-v01.sql
+set script_test=foo-test-v01.sql
+echo -- > %script_prod%
+
+type 01-*.sql >> %script_prod%
+type 02-*.sql >> %script_prod%
+type 03-*.sql >> %script_prod%
+
+cd %~dp0
+powershell -Command "(gc ./%script_prod%) -replace '---/', '/' -replace 'UNLOAD ', '--UNLOAD ' | Set-Content %script_test%"
+pause
+----
