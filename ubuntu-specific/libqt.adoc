@@ -1,0 +1,114 @@
+= libqt5multimedia5
+
+[source,bash]
+----
+tomasz@tom:~$ sudo apt-get update
+[sudo] password for tomasz: 
+Hit:1 http://pl.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://pl.archive.ubuntu.com/ubuntu bionic-updates InRelease [88,7 kB]
+Get:3 http://pl.archive.ubuntu.com/ubuntu bionic-backports InRelease [74,6 kB] 
+Get:4 http://security.ubuntu.com/ubuntu bionic-security InRelease [88,7 kB]    
+Get:5 http://pl.archive.ubuntu.com/ubuntu bionic-updates/main amd64 DEP-11 Metadata [283 kB]
+Get:6 http://pl.archive.ubuntu.com/ubuntu bionic-updates/main DEP-11 48x48 Icons [66,7 kB]
+Get:7 http://pl.archive.ubuntu.com/ubuntu bionic-updates/main DEP-11 64x64 Icons [134 kB]
+Get:8 http://pl.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 DEP-11 Metadata [250 kB]
+Get:9 http://pl.archive.ubuntu.com/ubuntu bionic-updates/universe DEP-11 48x48 Icons [195 kB]
+Get:10 http://pl.archive.ubuntu.com/ubuntu bionic-updates/universe DEP-11 64x64 Icons [424 kB]
+Get:11 http://pl.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 DEP-11 Metadata [2 468 B]
+Get:12 http://pl.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 DEP-11 Metadata [7 224 B]
+Get:13 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [451 kB]
+Get:14 http://security.ubuntu.com/ubuntu bionic-security/main i386 Packages [340 kB]
+Get:15 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [572 kB]
+Get:16 http://security.ubuntu.com/ubuntu bionic-security/universe i386 Packages [565 kB]
+Get:17 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [186 kB]
+Fetched 3 729 kB in 2s (1 616 kB/s)                                
+Reading package lists... Done
+
+tomasz@tom:~$ sudo apt-get install libqt5multimedia5
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+The following NEW packages will be installed:
+  libqt5multimedia5
+0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
+Need to get 293 kB of archives.
+After this operation, 1 307 kB of additional disk space will be used.
+Get:1 http://pl.archive.ubuntu.com/ubuntu bionic/universe amd64 libqt5multimedia5 amd64 5.9.5-0ubuntu1 [293 kB]
+Fetched 293 kB in 0s (2 849 kB/s)         
+Selecting previously unselected package libqt5multimedia5:amd64.
+(Reading database ... 172894 files and directories currently installed.)
+Preparing to unpack .../libqt5multimedia5_5.9.5-0ubuntu1_amd64.deb ...
+Unpacking libqt5multimedia5:amd64 (5.9.5-0ubuntu1) ...
+Setting up libqt5multimedia5:amd64 (5.9.5-0ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+----
+
+= libqt5xml5
+[source,bash]
+----
+tomasz@tom:~$ sudo apt-get install libqt5xml5
+[sudo] password for tomasz: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+libqt5xml5 is already the newest version (5.9.5+dfsg-0ubuntu2.1).
+libqt5xml5 set to manually installed.
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 26 not upgraded.
+----
+
+= libqt5script5
+[source,bash]
+----
+tomasz@tom:~$ sudo apt-get install libqt5script5
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+The following NEW packages will be installed:
+  libqt5script5
+0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
+Need to get 729 kB of archives.
+After this operation, 2 647 kB of additional disk space will be used.
+Get:1 http://pl.archive.ubuntu.com/ubuntu bionic/universe amd64 libqt5script5 amd64 5.9.5+dfsg-0ubuntu1 [729 kB]
+Fetched 729 kB in 0s (3 878 kB/s)       
+Selecting previously unselected package libqt5script5:amd64.
+(Reading database ... 172900 files and directories currently installed.)
+Preparing to unpack .../libqt5script5_5.9.5+dfsg-0ubuntu1_amd64.deb ...
+Unpacking libqt5script5:amd64 (5.9.5+dfsg-0ubuntu1) ...
+Setting up libqt5script5:amd64 (5.9.5+dfsg-0ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+----
+
+= libqt5serialport5
+[source,bash]
+----
+tomasz@tom:~$ sudo apt-get install libqt5serialport5
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+The following NEW packages will be installed:
+  libqt5serialport5
+0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
+Need to get 33,9 kB of archives.
+After this operation, 129 kB of additional disk space will be used.
+Get:1 http://pl.archive.ubuntu.com/ubuntu bionic/universe amd64 libqt5serialport5 amd64 5.9.5-0ubuntu1 [33,9 kB]
+Fetched 33,9 kB in 0s (532 kB/s)             
+Selecting previously unselected package libqt5serialport5:amd64.
+(Reading database ... 172907 files and directories currently installed.)
+Preparing to unpack .../libqt5serialport5_5.9.5-0ubuntu1_amd64.deb ...
+Unpacking libqt5serialport5:amd64 (5.9.5-0ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Setting up libqt5serialport5:amd64 (5.9.5-0ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+----
