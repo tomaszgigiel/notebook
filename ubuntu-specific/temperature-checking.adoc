@@ -1,0 +1,285 @@
+[source,bash]
+----
+tomasz@tom:~$ sudo apt-get install lm-sensors
+[sudo] password for tomasz: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+Suggested packages:
+  fancontrol read-edid i2c-tools
+The following NEW packages will be installed:
+  lm-sensors
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 85,5 kB of archives.
+After this operation, 384 kB of additional disk space will be used.
+Get:1 http://pl.archive.ubuntu.com/ubuntu bionic/universe amd64 lm-sensors amd64 1:3.4.0-4 [85,5 kB]
+Fetched 85,5 kB in 0s (610 kB/s)      
+Selecting previously unselected package lm-sensors.
+(Reading database ... 163306 files and directories currently installed.)
+Preparing to unpack .../lm-sensors_1%3a3.4.0-4_amd64.deb ...
+Unpacking lm-sensors (1:3.4.0-4) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+ureadahead will be reprofiled on next reboot
+Setting up lm-sensors (1:3.4.0-4) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/lm-sensors.service → /lib/systemd/system/lm-sensors.service.
+Processing triggers for systemd (237-3ubuntu10.24) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+
+tomasz@tom:~$ sudo sensors-detect
+# sensors-detect revision 6284 (2015-05-31 14:00:33 +0200)
+# System: Dell Inc. Latitude E5420 [01] (laptop)
+# Board: Dell Inc. 08N8FC
+# Kernel: 4.18.0-25-generic x86_64
+# Processor: Intel(R) Core(TM) i5-2430M CPU @ 2.40GHz (6/42/7)
+
+This program will help you determine which kernel modules you need
+to load to use lm_sensors most effectively. It is generally safe
+and recommended to accept the default answers to all questions,
+unless you know what you're doing.
+
+Some south bridges, CPUs or memory controllers contain embedded sensors.
+Do you want to scan for them? This is totally safe. (YES/no): YES
+Module cpuid loaded successfully.
+Silicon Integrated Systems SIS5595...                       No
+VIA VT82C686 Integrated Sensors...                          No
+VIA VT8231 Integrated Sensors...                            No
+AMD K8 thermal sensors...                                   No
+AMD Family 10h thermal sensors...                           No
+AMD Family 11h thermal sensors...                           No
+AMD Family 12h and 14h thermal sensors...                   No
+AMD Family 15h thermal sensors...                           No
+AMD Family 16h thermal sensors...                           No
+AMD Family 15h power sensors...                             No
+AMD Family 16h power sensors...                             No
+Intel digital thermal sensor...                             Success!
+    (driver `coretemp')
+Intel AMB FB-DIMM thermal sensor...                         No
+Intel 5500/5520/X58 thermal sensor...                       No
+VIA C7 thermal sensor...                                    No
+VIA Nano thermal sensor...                                  No
+
+Some Super I/O chips contain embedded sensors. We have to write to
+standard I/O ports to probe them. This is usually safe.
+Do you want to scan for Super I/O sensors? (YES/no): YES
+Probing for Super-I/O at 0x2e/0x2f
+Trying family `National Semiconductor/ITE'...               No
+Trying family `SMSC'...                                     Yes
+Found unknown chip with ID 0x0300
+Probing for Super-I/O at 0x4e/0x4f
+Trying family `National Semiconductor/ITE'...               No
+Trying family `SMSC'...                                     No
+Trying family `VIA/Winbond/Nuvoton/Fintek'...               No
+Trying family `ITE'...                                      No
+
+Some hardware monitoring chips are accessible through the ISA I/O ports.
+We have to write to arbitrary I/O ports to probe them. This is usually
+safe though. Yes, you do have ISA I/O ports even if you do not have any
+ISA slots! Do you want to scan the ISA I/O ports? (YES/no): YES
+Probing for `National Semiconductor LM78' at 0x290...       No
+Probing for `National Semiconductor LM79' at 0x290...       No
+Probing for `Winbond W83781D' at 0x290...                   No
+Probing for `Winbond W83782D' at 0x290...                   No
+
+Lastly, we can probe the I2C/SMBus adapters for connected hardware
+monitoring devices. This is the most risky part, and while it works
+reasonably well on most systems, it has been reported to cause trouble
+on some systems.
+Do you want to probe the I2C/SMBus adapters now? (YES/no): YES
+Using driver `i2c-i801' for device 0000:00:1f.3: Intel Cougar Point (PCH)
+Module i2c-i801 loaded successfully.
+
+Next adapter: i915 gmbus ssc (i2c-0)
+Do you want to scan it? (yes/NO/selectively): YES
+
+Next adapter: i915 gmbus vga (i2c-1)
+Do you want to scan it? (yes/NO/selectively): YES
+
+Next adapter: i915 gmbus panel (i2c-2)
+Do you want to scan it? (yes/NO/selectively): YES
+Client found at address 0x28
+Probing for `National Semiconductor LM78'...                No
+Probing for `National Semiconductor LM79'...                No
+Probing for `National Semiconductor LM80'...                No
+Probing for `National Semiconductor LM96080'...             No
+Probing for `Winbond W83781D'...                            No
+Probing for `Winbond W83782D'...                            No
+Probing for `Nuvoton NCT7802Y'...                           No
+Probing for `Winbond W83627HF'...                           No
+Probing for `Winbond W83627EHF'...                          No
+Probing for `Winbond W83627DHG/W83667HG/W83677HG'...        No
+Probing for `Asus AS99127F (rev.1)'...                      No
+Probing for `Asus AS99127F (rev.2)'...                      No
+Probing for `Asus ASB100 Bach'...                           No
+Probing for `Analog Devices ADM1029'...                     No
+Probing for `ITE IT8712F'...                                No
+
+Next adapter: i915 gmbus dpc (i2c-3)
+Do you want to scan it? (yes/NO/selectively): yes
+
+Next adapter: i915 gmbus dpb (i2c-4)
+Do you want to scan it? (yes/NO/selectively): yes
+
+Next adapter: i915 gmbus dpd (i2c-5)
+Do you want to scan it? (yes/NO/selectively): yes
+
+Next adapter: DPDDC-B (i2c-6)
+Do you want to scan it? (yes/NO/selectively): yes
+
+Next adapter: DPDDC-C (i2c-7)
+Do you want to scan it? (yes/NO/selectively): yes
+
+Next adapter: DPDDC-D (i2c-8)
+Do you want to scan it? (yes/NO/selectively): yes
+
+Next adapter: SMBus I801 adapter at 7040 (i2c-9)
+Do you want to scan it? (YES/no/selectively): YES
+Client found at address 0x1d
+Probing for `TI / National Semiconductor ADC128D818'...     No
+Probing for `Texas Instruments TMP421'...                   No
+Probing for `Texas Instruments TMP441'...                   No
+Probing for `ST STTS424'...                                 No
+Probing for `ST STTS424E'...                                No
+Probing for `ST STTS2002'...                                No
+Probing for `ST STTS3000'...                                No
+Probing for `NXP SE97/SE97B'...                             No
+Probing for `NXP SE98'...                                   No
+Probing for `Analog Devices ADT7408'...                     No
+Probing for `IDT TS3000/TSE2002'...                         No
+Probing for `IDT TSE2004'...                                No
+Probing for `IDT TS3001'...                                 No
+Probing for `Maxim MAX6604'...                              No
+Probing for `Microchip MCP9804'...                          No
+Probing for `Microchip MCP98242'...                         No
+Probing for `Microchip MCP98243'...                         No
+Probing for `Microchip MCP98244'...                         No
+Probing for `Microchip MCP9843'...                          No
+Probing for `ON CAT6095/CAT34TS02'...                       No
+Probing for `Atmel AT30TS00'...                             No
+Client found at address 0x2b
+Probing for `National Semiconductor LM78'...                No
+Probing for `National Semiconductor LM79'...                No
+Probing for `National Semiconductor LM80'...                No
+Probing for `National Semiconductor LM96080'...             No
+Probing for `Winbond W83781D'...                            No
+Probing for `Winbond W83782D'...                            No
+Probing for `Nuvoton NCT7802Y'...                           No
+Probing for `Winbond W83627HF'...                           No
+Probing for `Winbond W83627EHF'...                          No
+Probing for `Winbond W83627DHG/W83667HG/W83677HG'...        No
+Probing for `Asus AS99127F (rev.1)'...                      No
+Probing for `Asus AS99127F (rev.2)'...                      No
+Probing for `Asus ASB100 Bach'...                           No
+Probing for `Analog Devices ADM1021'...                     No
+Probing for `Analog Devices ADM1021A/ADM1023'...            No
+Probing for `Maxim MAX1617'...                              No
+Probing for `Maxim MAX1617A'...                             No
+Probing for `Maxim MAX1668'...                              No
+Probing for `Maxim MAX1805'...                              No
+Probing for `Maxim MAX1989'...                              No
+Probing for `Maxim MAX6655/MAX6656'...                      No
+Probing for `TI THMC10'...                                  No
+Probing for `National Semiconductor LM84'...                No
+Probing for `Genesys Logic GL523SM'...                      No
+Probing for `Onsemi MC1066'...                              No
+Probing for `Maxim MAX1618'...                              No
+Probing for `Maxim MAX1619'...                              No
+Probing for `National Semiconductor LM82/LM83'...           No
+Probing for `Maxim MAX6654'...                              No
+Probing for `Maxim MAX6690'...                              No
+Probing for `Maxim MAX6680/MAX6681'...                      No
+Probing for `Maxim MAX6695/MAX6696'...                      No
+Probing for `Texas Instruments TMP400'...                   No
+Probing for `National Semiconductor LM95231'...             No
+Probing for `National Semiconductor LM95233'...             No
+Probing for `National Semiconductor LM95241'...             No
+Probing for `Analog Devices ADM1029'...                     No
+Probing for `ITE IT8712F'...                                No
+Client found at address 0x50
+Probing for `Analog Devices ADM1033'...                     No
+Probing for `Analog Devices ADM1034'...                     No
+Probing for `SPD EEPROM'...                                 Yes
+    (confidence 8, not a hardware monitoring chip)
+Probing for `EDID EEPROM'...                                No
+Client found at address 0x52
+Probing for `Analog Devices ADM1033'...                     No
+Probing for `Analog Devices ADM1034'...                     No
+Probing for `SPD EEPROM'...                                 Yes
+    (confidence 8, not a hardware monitoring chip)
+
+
+Now follows a summary of the probes I have just done.
+Just press ENTER to continue: 
+
+Driver `coretemp':
+  * Chip `Intel digital thermal sensor' (confidence: 9)
+
+To load everything that is needed, add this to /etc/modules:
+#----cut here----
+# Chip drivers
+coretemp
+#----cut here----
+If you have some drivers built into your kernel, the list above will
+contain too many modules. Skip the appropriate ones!
+
+Do you want to add these lines automatically to /etc/modules? (yes/NO)yes
+Successful!
+
+Monitoring programs won't work until the needed modules are
+loaded. You may want to run '/etc/init.d/kmod start'
+to load them.
+
+Unloading i2c-i801... OK
+Unloading cpuid... OK
+
+tomasz@tom:~$ sudo service kmod start
+tomasz@tom:~$ sensors
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +56.0°C  (high = +86.0°C, crit = +100.0°C)
+Core 0:        +56.0°C  (high = +86.0°C, crit = +100.0°C)
+Core 1:        +51.0°C  (high = +86.0°C, crit = +100.0°C)
+
+acpitz-virtual-0
+Adapter: Virtual device
+temp1:        +25.0°C  (crit = +107.0°C)
+
+dell_smm-virtual-0
+Adapter: Virtual device
+Processor Fan: 3290 RPM
+CPU:            +55.0°C  
+Ambient:        +44.0°C  
+SODIMM:         +47.0°C  
+
+tomasz@tom:~$ sudo apt-get install hddtemp
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+The following NEW packages will be installed:
+  hddtemp
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 47,7 kB of archives.
+After this operation, 185 kB of additional disk space will be used.
+Get:1 http://pl.archive.ubuntu.com/ubuntu bionic/universe amd64 hddtemp amd64 0.3-beta15-53 [47,7 kB]
+Fetched 47,7 kB in 0s (660 kB/s)   
+Preconfiguring packages ...
+Selecting previously unselected package hddtemp.
+(Reading database ... 163341 files and directories currently installed.)
+Preparing to unpack .../hddtemp_0.3-beta15-53_amd64.deb ...
+Unpacking hddtemp (0.3-beta15-53) ...
+Setting up hddtemp (0.3-beta15-53) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for systemd (237-3ubuntu10.24) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+
+tomasz@tom:~$ sudo hddtemp /dev/sda
+/dev/sda: CT500MX500SSD1: 40°C
+tomasz@tom:~$ sudo hddtemp /dev/sdb
+/dev/sdb: SAMSUNG MZ7LN256HCHP-0007L              ????: 31°C
+----
