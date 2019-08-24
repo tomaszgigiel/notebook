@@ -1,0 +1,130 @@
+[source,bash]
+----
+tomasz@tom:~$ git clone https://github.com/Microsoft/vcpkg.git
+Cloning into 'vcpkg'...
+remote: Enumerating objects: 39, done.
+remote: Counting objects: 100% (39/39), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 63889 (delta 13), reused 4 (delta 0), pack-reused 63850
+Receiving objects: 100% (63889/63889), 16.21 MiB | 10.35 MiB/s, done.
+Resolving deltas: 100% (40135/40135), done.
+
+tomasz@tom:~$ sudo apt-get install curl unzip tar
+[sudo] password for tomasz: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+unzip is already the newest version (6.0-21ubuntu1).
+tar is already the newest version (1.29b-2ubuntu0.1).
+The following package was automatically installed and is no longer required:
+  libllvm7
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  libcurl4
+The following NEW packages will be installed:
+  curl libcurl4
+0 upgraded, 2 newly installed, 0 to remove and 2 not upgraded.
+Need to get 373 kB of archives.
+After this operation, 1 036 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://pl.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcurl4 amd64 7.58.0-2ubuntu3.7 [214 kB]
+Get:2 http://pl.archive.ubuntu.com/ubuntu bionic-updates/main amd64 curl amd64 7.58.0-2ubuntu3.7 [159 kB]
+Fetched 373 kB in 0s (1 253 kB/s)
+Selecting previously unselected package libcurl4:amd64.
+(Reading database ... 186946 files and directories currently installed.)
+Preparing to unpack .../libcurl4_7.58.0-2ubuntu3.7_amd64.deb ...
+Unpacking libcurl4:amd64 (7.58.0-2ubuntu3.7) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_7.58.0-2ubuntu3.7_amd64.deb ...
+Unpacking curl (7.58.0-2ubuntu3.7) ...
+Setting up libcurl4:amd64 (7.58.0-2ubuntu3.7) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Setting up curl (7.58.0-2ubuntu3.7) ...
+
+tomasz@tom:~$ cd ./Documents/workspace/vcpkg/
+tomasz@tom:~/Documents/workspace/vcpkg$ ./bootstrap-vcpkg.sh
+Downloading cmake...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   620    0   620    0     0   1845      0 --:--:-- --:--:-- --:--:--  1845
+100 35.4M  100 35.4M    0     0  5934k      0  0:00:06  0:00:06 --:--:-- 7844k
+Downloading cmake... done.
+Extracting cmake...
+Extracting cmake... done.
+Downloading ninja...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   604    0   604    0     0   1636      0 --:--:-- --:--:-- --:--:--  1632
+100 77854  100 77854    0     0  62333      0  0:00:01  0:00:01 --:--:--  461k
+Downloading ninja... done.
+Extracting ninja...
+Extracting ninja... done.
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++-7
+-- Check for working CXX compiler: /usr/bin/g++-7 -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/tomasz/Documents/workspace/vcpkg/toolsrc/build.rel
+[0/2] Re-checking globbed directories...
+[65/65] Linking CXX executable vcpkg
+
+tomasz@tom:~/Documents/workspace/vcpkg$ ./vcpkg integrate install
+Applied user-wide integration for this vcpkg root.
+
+CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/home/tomasz/Documents/workspace/vcpkg/scripts/buildsystems/vcpkg.cmake"
+
+tomasz@tom:~/Documents/workspace/vcpkg$ ./vcpkg install sdl2 curl
+The following packages will be built and installed:
+    curl[core,openssl,ssl]:x64-linux
+  * openssl[core]:x64-linux
+  * openssl-unix[core]:x64-linux
+    sdl2[core]:x64-linux
+  * zlib[core]:x64-linux
+Additional packages (*) will be modified to complete this operation.
+Starting package 1/5: openssl-unix:x64-linux
+Building package openssl-unix[core]:x64-linux...
+-- Downloading https://www.openssl.org/source/openssl-1.0.2s.tar.gz...
+-- Extracting source /home/tomasz/Documents/workspace/vcpkg/downloads/openssl-1.0.2s.tar.gz
+-- Applying patch ConfigureIncludeQuotesFix.patch
+-- Applying patch STRINGIFYPatch.patch
+-- Applying patch EmbedSymbolsInStaticLibsZ7.patch
+-- Using source at /home/tomasz/Documents/workspace/vcpkg/buildtrees/openssl-unix/src/1.0.2s-20837d8435
+CMake Error at ports/openssl-unix/portfile.cmake:41 (message):
+  Could not find make.  Please install it through your package manager.
+Call Stack (most recent call first):
+  scripts/ports.cmake:85 (include)
+
+
+Error: Building package openssl-unix:x64-linux failed with: BUILD_FAILED
+Please ensure you're using the latest portfiles with `.\vcpkg update`, then
+submit an issue at https://github.com/Microsoft/vcpkg/issues including:
+  Package: openssl-unix:x64-linux
+  Vcpkg version: 2019.08.16-unknownhash
+
+Additionally, attach any relevant sections from the log files above.
+
+tomasz@tom:~/Documents/workspace/vcpkg$ ./vcpkg integrate bash
+Adding vcpkg completion entry to /home/tomasz/.bashrc
+
+tomasz@tom:~/Documents/workspace/vcpkg$ ./vcpkg list
+No packages are installed. Did you mean `search`?
+----
